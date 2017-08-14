@@ -1,0 +1,24 @@
+<h2>Create a new bad quote:</h2>
+
+<p *ngFor="let error of errors">{{error.message}}</p>
+
+<form (submit)="addQuote(newQuote)">
+	<p>Name: <input 
+	type="text" 
+	name="name"
+	[(ngModel)] = "newQuote.name"
+	#name="ngModel"
+	></p>
+	<p>Quote: <input 
+	type="text" 
+	name="quote"
+	[(ngModel)] = "newQuote.quote"
+	#quote="ngModel"
+	></p>
+	<input type="submit" name="">
+</form>
+
+<h2>Here is a list of all the terrible quotes.</h2>
+<ul>
+	<li *ngFor="let quote of quotes">{{quote.quote}}, by {{quote.name}} - {{quote.createdAt}}</li>
+</ul>
